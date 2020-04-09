@@ -17,7 +17,7 @@ for (let hour = 9; hour <= 17; hour++) {
         $('<text>')
             .addClass("hour")
             .attr("id", "hour")
-            .text('hour-index', hour));
+            .text(hour + ":00"));
 
     $("#time-block").append(
         $('<textarea>'));

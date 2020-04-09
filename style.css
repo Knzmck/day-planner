@@ -11,7 +11,7 @@ body {
     color: #000000;
     border-left: 1px solid black;
     padding: 10px;
-    width: 75%;
+    width: 80%;
   }
   
   .jumbotron {
@@ -29,21 +29,24 @@ body {
   .time-block{
     text-align: center;
     border-radius: 15px;
+    display: inline-block;
   }
   
   .row {
     white-space: pre-wrap;
     height: 80px;
     border-top: 1px solid white;
+    
 
   }
   
   .hour {
-    background-color: #ffffff;
+    background-color:white;
     color: #000000;
     border-top: 1px dashed #000000;
-    width: auto;
-    padding-right: 10px;
+    width: 10%;
+    display: inline-block;
+
   }
   
   .past {
@@ -74,10 +77,33 @@ body {
     font-size: 20px;
     transition: all .3s ease-in-out;
   }
+
 /* 
   footer {
     height: 50px;
   } */
 
-  
+  /*Extra small devices (smartphones, <600px)*/  
+
+@media only screen and (max-width: 600px) {…}  
+
+
+/*Small devices (large smartphones and portrait tablets >= 600px)*/  
+
+@media only screen and (min-width: 600px) {…}  
+
+
+/*Medium devices (landscape tablets >= 768px)*/  
+
+@media only screen and (min-width: 768px) {…}  
+
+
+/*Large devices (laptops and desktops, >=600px)*/  
+
+@media only screen and (min-width: 992px) {…} 
+
+
+/*Extra Large devices (laptops and desktops <600px)*/  
+
+@media only screen and (min-width: 1200px) {…}
   
