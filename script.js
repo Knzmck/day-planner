@@ -29,12 +29,6 @@ for (let hour = 9; hour <= 17; hour++) {
             .text("save"));
     
 }
-    
-
-
-
-
-//create divs for timeslots 9-5 (9) rows with three columns. event space for user to type in. save button
 // Current hour is red 
 // When user types in plans and presses save button
     // Checks for input and if not input error message, if else append text to div
@@ -44,9 +38,6 @@ for (let hour = 9; hour <= 17; hour++) {
 // var date = new Date();
 // var time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 // console.log(time);
-
-
-
 
     // if time is 9:00-9:59.59 current background red .present
     // if time is greater than time value- current background is green .future
