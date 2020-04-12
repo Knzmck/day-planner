@@ -17,8 +17,8 @@ $(document).ready(function () {
     })
 
   // creating HTML for planner inside of container div on index.HTML page
-  for (let hour = 9; hour <= 17; hour++) {
-    let index = hour - 9;
+  for (let index = 9; index <= 17; index++) {
+    // let index = hour - 9;
     $("#container").append(
       $("<div>").addClass("row", "time-block").attr("id", "time-block")
     );
@@ -27,7 +27,7 @@ $(document).ready(function () {
       $("<text>")
         .addClass("hour")
         .attr("id", "hour")
-        .text(hour + ":00")
+        .text(index + ":00")
     );
 
     $("#time-block").append($("<textarea>").attr("id", "user-input").val(""));
@@ -42,8 +42,8 @@ $(document).ready(function () {
   $(document).on("click", "#saveBtn", function () {
     alert("test")
       //value of user input task
-      var task = $(this).sibling("#user-input").val();
-      var time = parseInt($(this).sibling("#hour").innerText());
+      var task = $(this).siblings().find("#user-input").val();
+      var time = parseInt($(this).siblings().find("#hour").innerText());
       localStorage.setItem("plans", time, task);
 
 })
@@ -52,7 +52,7 @@ $(document).ready(function () {
     // function within updateTime that will loop over each time-block
     $("#time-block").each(function () {
       // var hour = parseInt($(this).attr("id").split("-") [1]);
-      var hour = parseInt($(this).children.attr("id",));
+      var hour = parseInt($(this).index);
 
     // check to add color indicating time
     if (hour < currentHour) {
