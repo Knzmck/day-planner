@@ -1,22 +1,22 @@
 $(document).ready(function () {
 
+  //variable for current time
   var currentHour = moment().hours();
   console.log(currentHour);
-  let timeBlock = ("#time-block")
+  //function for updating time 
+  updateTime()
 
-  $(timeBlock).each(function () {
+   //retrieving stored plans
+  $("#time-block").each(function () {
     let storedPlans = localStorage.getItem("plans");
     if (storedPlans !== null) {
-      planTextArr = task;
+      $("#user-input").val("")
     } else {
-      // this should only occur on first time the app is loaded in the browser
-      // helpfully remind user that lunch is important
-      planTextArr = new Array(9);
-      planTextArr[4] = "Picnic lunch outside";
+      $("#user-input").val(storedPlans)
     }
     })
 
-  // creating grid for planner
+  // creating HTML for planner inside of container div on index.HTML page
   for (let hour = 9; hour <= 17; hour++) {
     let index = hour - 9;
     $("#container").append(
@@ -37,14 +37,37 @@ $(document).ready(function () {
     );
   
     }
-    
-    
+  
   //saves task/plan user types in when save button is clicked
   $(document).on("click", "#saveBtn", function () {
-    $(this).each(function() {
+    alert("test")
       //value of user input task
-      var task = $("#user-input").val();
-      localStorage.setItem("plans", task);
+      var task = $(this).sibling("#user-input").val();
+      var time = parseInt($(this).sibling("#hour").innerText());
+      localStorage.setItem("plans", time, task);
+
 })
-})
+
+ function updateTime() {
+    // function within updateTime that will loop over each time-block
+    $("#time-block").each(function () {
+      // var hour = parseInt($(this).attr("id").split("-") [1]);
+      var hour = parseInt($(this).children.attr("id",));
+
+    // check to add color indicating time
+    if (hour < currentHour) {
+      $(this).addClass("past");
+    } else if (hour === currentHour) {
+      $(this).addClass("present");
+      $(this).removeClass("past");
+    } else {
+      $(this).removeClass("past");
+      $(this).removeClass("present");
+      $(this).addClass("future");
+   
+      setTimeout(updateTime, 5000);
+    }
+  }
+
+    )}
 })
