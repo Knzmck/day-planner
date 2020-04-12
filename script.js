@@ -6,15 +6,15 @@ $(document).ready(function () {
   //function for updating time 
   updateTime()
 
-   //retrieving stored plans
-  $("#time-block").each(function () {
-    let storedPlans = localStorage.getItem("plans");
-    if (storedPlans !== null) {
-      $("#user-input").val("")
-    } else {
-      $("#user-input").val(storedPlans)
-    }
-    })
+  //retrieving stored plans
+  // $("#time-block").each(function () {
+  //   let storedPlans = localStorage.getItem("plans");
+  //   if (storedPlans !== null) {
+  //     $("#user-input").val("")
+  //   } else {
+  //     $("#user-input").val(storedPlans)
+  //   }
+  //   })
 
   // creating HTML for planner inside of container div on index.HTML page
   for (let index = 9; index <= 17; index++) {
@@ -39,20 +39,20 @@ $(document).ready(function () {
     }
   
   //saves task/plan user types in when save button is clicked
-  $(document).on("click", "#saveBtn", function () {
-    alert("test")
-      //value of user input task
-      var task = $(this).siblings().find("#user-input").val();
-      var time = parseInt($(this).siblings().find("#hour").innerText());
-      localStorage.setItem("plans", time, task);
+//   $(document).on("click", "#saveBtn", function () {
+//     alert("test")
+//       //value of user input task
+//       var task = $(this).siblings().find("#user-input").val();
+//       var time = parseInt($(this).siblings().find("#hour").innerText());
+//       localStorage.setItem("plans", time, task);
 
-})
+// })
 
  function updateTime() {
     // function within updateTime that will loop over each time-block
-    $("#time-block").each(function () {
+    $("#hour").each(function () {
       // var hour = parseInt($(this).attr("id").split("-") [1]);
-      var hour = parseInt($(this).index);
+      var hour = parseInt($(this).innerText);
 
     // check to add color indicating time
     if (hour < currentHour) {
@@ -65,7 +65,7 @@ $(document).ready(function () {
       $(this).removeClass("present");
       $(this).addClass("future");
    
-      setTimeout(updateTime, 5000);
+      setInterval(updateTime, 5000);
     }
   }
 
